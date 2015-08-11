@@ -8,13 +8,13 @@
 
 class PostCommentsWPAPI {
 	function __construct() {
-		if ( isset($_GET['withcomments'] ) ) {
+		if ( isset( $_GET['withcomments'] ) ) {
 			add_filter( 'json_prepare_post', array( &$this, 'get_comments_for_posts' ), 10, 3 );
 		}
 	}
 
 	function get_comments_for_posts( $data, $post, $context ) {
-		$comments = get_comments( $post->ID) ;
+		$comments = get_comments( $post->ID ) ;
 
 		foreach ( $comments as $comment ) {
 			$user_id = $comment->user_id;
