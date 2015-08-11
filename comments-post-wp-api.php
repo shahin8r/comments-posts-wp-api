@@ -14,7 +14,7 @@ class PostCommentsWPAPI {
 	}
 
 	function get_comments_for_posts( $data, $post, $context ) {
-		$comments = get_comments( $post->ID ) ;
+		$comments = get_comments( array( 'post_id' => $post['ID'] ) ) ;
 
 		foreach ( $comments as $comment ) {
 			$user_id = $comment->user_id;
